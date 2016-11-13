@@ -5,7 +5,7 @@ local function do_keyboard_credits()
     keyboard.inline_keyboard = {
     	{
     		{text = _("Channel"), url = 'https://telegram.me/'..config.channel:gsub('@', '')},
-    		{text = _("GitHub"), url = 'https://github.com/RememberTheAir/GroupButler'},
+    		{text = _("GitHub"), url = 'https://github.com/kamikazechaser/GroupThor'},
     		{text = _("Rate me!"), url = 'https://telegram.me/storebot?start='..bot.username},
 		},
 		{
@@ -47,7 +47,7 @@ function plugin.onTextMessage(msg, blocks)
 	end
 	if blocks[1] == 'about' then
 		local keyboard = do_keyboard_credits()
-		local text = _("This bot is based on [otouto](https://github.com/topkecleon/otouto) (AKA @mokubot, channel: @otouto), a multipurpose Lua bot.\nGroup Butler wouldn't exist without it.\n\nThe owner of this bot is @bac0nnn, do not pm him: use /groups command instead.\n\nBot version: `%s`\n*Some useful links:*"):format(config.human_readable_version .. ' rev.' .. bot.revision)
+		local text = _("The owner of this bot is @kamikazechaser, do not pm him: use /groups command instead.\n\nBot version: `%s`\n*Some useful links:*"):format(config.human_readable_version .. ' rev.' .. bot.revision)
 		api.sendMessage(msg.chat.id, text, true, keyboard)
 	end
 	if blocks[1] == 'groups' then
@@ -69,7 +69,7 @@ end
 function plugin.onCallbackQuery(msg, blocks)
 	if blocks[1] == 'about' then
 		local keyboard = do_keyboard_credits()
-		local text = _("This bot is based on [otouto](https://github.com/topkecleon/otouto) (AKA @mokubot, channel: @otouto), a multipurpose Lua bot.\nGroup Butler wouldn't exist without it.\n\nThe owner of this bot is @bac0nnn, do not pm him: use /groups command instead.\n\nBot version: `%s`\n*Some useful links:*"):format(config.human_readable_version .. ' rev.' .. bot.revision)
+		local text = _("The owner of this bot is @kamikazechaser, do not pm him: use /groups command instead.\n\nBot version: `%s`\n*Some useful links:*"):format(config.human_readable_version .. ' rev.' .. bot.revision)
 		api.editMessageText(msg.chat.id, msg.message_id, text, true, keyboard)
 	end
 	if blocks[1] == 'groups' then
@@ -88,7 +88,7 @@ function plugin.onCallbackQuery(msg, blocks)
 	end
 	if blocks[1] == 'sendpo' then
 		local lang = blocks[2]
-		local instr_url = 'telegram.me/groupbutler_ch'
+		local instr_url = 'telegram.me/ThorSupport'
 		local path = 'locales/'..lang..'.po'
 		local button = {inline_keyboard = {{{text = _("Instructions"), url = instr_url}}}}
 		api.editMessageText(msg.chat.id, msg.message_id, _("Sending `%s.po` file..."):format(lang), true, button)
